@@ -1,2 +1,2 @@
-class BicycleController < ApplicationController
+class BicyclesController < ApplicationController
 end
