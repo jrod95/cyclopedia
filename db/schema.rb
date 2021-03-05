@@ -10,37 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_152656) do
+ActiveRecord::Schema.define(version: 2021_03_05_134145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bicycles", force: :cascade do |t|
-    t.string "type"
+    t.string "activity"
     t.string "brand"
     t.string "model"
     t.integer "size"
     t.text "specs"
     t.string "gender"
     t.boolean "pick_up"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.integer "price"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_bicycles_on_users_id"
+    t.index ["user_id"], name: "index_bicycles_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.bigint "bicycles_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "bicycle_id", null: false
     t.date "date_start"
     t.date "date_end"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bicycles_id"], name: "index_bookings_on_bicycles_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["bicycle_id"], name: "index_bookings_on_bicycle_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_152656) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bicycles", "users", column: "users_id"
-  add_foreign_key "bookings", "bicycles", column: "bicycles_id"
-  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "bicycles", "users"
+  add_foreign_key "bookings", "bicycles"
+  add_foreign_key "bookings", "users"
 end
