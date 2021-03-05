@@ -8,7 +8,7 @@ class CreateBicycles < ActiveRecord::Migration[6.0]
       t.text :specs
       t.string :gender
       t.boolean :pick_up
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.integer :price
       t.text :description
 
