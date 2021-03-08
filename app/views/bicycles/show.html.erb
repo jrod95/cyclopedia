@@ -31,15 +31,35 @@
      <p>
       <strong>Description:</strong>
       <%= @bicycle.description %>
+       </p>
+      <p><strong>Size:</strong>
+      <%= @bicycle.size %>
+    </p>
+      <p><strong>Specifications:</strong>
+      <%= @bicycle.specs %>
     </p>
  </div>
-     <div class="col">
+
+
+     <div class="col border border-secondary">
+
       <p>
-        <strong>BOOK HERE</strong>
+
+        <%= simple_form_for [ @bicycle, @booking ] do |f|   %>
+          <strong>Price per day: <%= @bicycle.price %></strong>
+          <%= f.input :date_start %>
+          <%= f.input :date_end %>
+          <%= f.submit "Book", class: 'btn btn-primary' %>
+        <% end %>
+
       </p>
+
     </div>
   </div>
 </div>
+
+
+
 
 
 
