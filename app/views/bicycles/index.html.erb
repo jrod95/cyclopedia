@@ -1,4 +1,13 @@
-
+<%= form_tag bicycles_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a bicycle"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+   
+   
    <div class="container">
       <div class="row">
          <% @bicycles.each do |bicycle| %>
