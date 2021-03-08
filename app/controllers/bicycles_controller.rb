@@ -6,12 +6,13 @@ class BicyclesController < ApplicationController
 
     def show
         @bicycle = Bicycle.find(params[:id])
+        @booking = Booking.new
     end
 
     def new
         @bicycle = Bicycle.new
     end
-    
+
     def create
        @bicycle = Bicycle.new(bicycle_params)
        @bicycle.user = current_user
@@ -21,6 +22,9 @@ class BicyclesController < ApplicationController
             render 'new'
         end
     end
+
+
+
 
     def edit
     end
