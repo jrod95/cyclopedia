@@ -1,18 +1,11 @@
    <div class="container">
       <div class="row">
          <% @bicycles.each do |bicycle| %>
-         <div class="card">
-            #(input image)
-            <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
-            <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
-
-
-         </div>
+            <div class="card col-sm-4">
+               <img src="https://s14761.pcdn.co/wp-content/uploads/sites/3/2020/04/Bianchi-Infinito-CV-test-review-2020-014-386-980x654.jpg" alt="">
+               <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+               <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+            </div>
          <% end %>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          #paginate bicycles
-        </div>
       </div>
    </div>
