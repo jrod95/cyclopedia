@@ -1,0 +1,20 @@
+<div>
+  <div class="row justify-content-center">
+    <div class="col-6", id="booking_box">
+      <h2>Voila! Your bicycle is booked. </h2>
+
+        <p><strong>From:</strong>
+      <%= @booking.date_start %><br>
+      <p><strong>To:</strong>
+      <%= @booking.date_end %>
+
+        <p><strong>Total price: </strong>
+      <%= @booking.price %>
+        <p><strong>Brand: </strong><%= @booking.bicycle.brand %>
+        </p>
+        <p><strong>Model: </strong>
+        <%= @booking.bicycle.model %>
+
+    </div>
+  </div>
+</div>
