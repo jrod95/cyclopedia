@@ -1,3 +1,4 @@
+
  <div class="container">
        <div class="row">
           <% @bicycles.each do |bicycle| %>
@@ -6,8 +7,6 @@
              <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
              <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
              <p class="card-text"><%= bicycle.specs%></p>
-
-
           </div>
           <% end %>
        </div>
@@ -17,3 +16,14 @@
          </div>
        </div>
     </div>
+   <div class="container">
+      <div class="row">
+         <% @bicycles.each do |bicycle| %>
+            <div class="card col-sm-4">
+               <img src="https://s14761.pcdn.co/wp-content/uploads/sites/3/2020/04/Bianchi-Infinito-CV-test-review-2020-014-386-980x654.jpg" alt="">
+               <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+               <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+            </div>
+         <% end %>
+      </div>
+   </div>
