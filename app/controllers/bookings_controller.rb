@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     #  @booking.price = ??
 
     if @booking.save
-      redirect_to bicycle_booking_path(@bicycle, @booking)
+      redirect_to booking_path(@booking)
     else
       render "bicycles/show"
     end
