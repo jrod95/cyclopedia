@@ -7,7 +7,8 @@
       <strong>Model:</strong>
       <%= @bicycle.model %>
     </p>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <%= cl_image_tag @bicycle.photo.key, height: 300, width: 400, crop: :fill %>
+<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100" src="https://images.unsplash.com/photo-1560799486-f4b726357fcd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="1 slide">
@@ -27,7 +28,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> -->
      <p>
       <strong>Description:</strong>
       <%= @bicycle.description %>
