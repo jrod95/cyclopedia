@@ -7,8 +7,6 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
    
-   
-   <div class="container">
       <div class="row">
          <% @bicycles.each do |bicycle| %>
             <%= link_to bicycle_path(bicycle.id) do %>
@@ -20,5 +18,4 @@
             <% end %>
          <% end %>
       </div>
-   </div>
    
