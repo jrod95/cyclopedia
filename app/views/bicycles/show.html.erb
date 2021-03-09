@@ -1,4 +1,5 @@
 <div class="main-container">
+
   <div class="d-flex flex-col justify-content-between align-items-center">
     <div class="col">
     <p><strong>Brand:</strong><%= @bicycle.brand %>
@@ -27,17 +28,45 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+
 </div>
+
      <p>
-      <strong>Description:</strong>
-      <%= @bicycle.description %>
-       </p>
-      <p><strong>Size:</strong>
+       <strong>Description:</strong>
+       <%= @bicycle.description %>
+     </p>
+     <p><strong>Size:</strong>
       <%= @bicycle.size %>
-    </p>
-      <p><strong>Specifications:</strong>
+     </p>
+     <p><strong>Specifications:</strong>
       <%= @bicycle.specs %>
-    </p>
+     </p>
+
+ <br>
+    <h3>
+      <%= pluralize @bicycle.reviews.size, "review" %>
+    </h3>
+
+
+
+  <div id="reviews">
+    <% if @bicycle.reviews.blank? %>
+      Be the first to leave a review for <%= @bicycle.model %>
+    <% else %>
+      <% @bicycle.reviews.each do |review| %>
+        <p id="review-<%= review.id %>"> <%= review.content %></p>
+      <% end %>
+    <% end %>
+
+</div>
+  <%= simple_form_for([@bicycle, @review]) do |f| %>
+    <%= f.input :content, as: :text %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+
+
+
+
  </div>
 
 
@@ -49,11 +78,9 @@
           <strong>Price per day: <%= @bicycle.price %></strong>
           <%= f.input :date_start %>
           <%= f.input :date_end %>
-          <%= f.submit "Book", class: 'btn btn-primary' %>
+          <%= f.submit 'Book', class: 'btn btn-primary'%>
         <% end %>
-
       </p>
-
     </div>
   </div>
 </div>
