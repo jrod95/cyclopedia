@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
 
   def create
-    @bicycle = Bicycle.find(params[:id])
+    @bicycle = Bicycle.find(params[:bicycle_id])
     @review = Review.new(review_params)
     @review.bicycle = @bicycle
     if @review.save
-      redirect to bicycle_path(@bicycle)
+      redirect_to bicycle_path(@bicycle, anchor: "review-#{@review.id}")
     else
       render 'bicycles/show'
     end
