@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @bicycle = Bicycle.find(params[:bicycle_id])
     @booking = Booking.new(booking_params)
@@ -9,7 +13,7 @@ class BookingsController < ApplicationController
     #  @booking.price = ??
 
     if @booking.save
-      redirect_to @bicycle, notice: "Success! Your booking is complete"
+      redirect_to booking_path(@booking)
     else
       render "bicycles/show"
     end
