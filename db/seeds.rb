@@ -8,14 +8,14 @@ puts "db is clean"
 
 puts "creating ..."
 
-#user = User.new(
-  #email: "test@outlook.com",
-  #password: "test123",
-  #location: "lisbon",
-  #name: "Amanda",
-  #bio: "site test"
-#)
-#user.save
+user3 = User.new(
+  email: "test3@outlook.com",
+  password: "test123",
+  location: "lisbon",
+  name: "David",
+  bio: "site test"
+)
+user.save
 #puts"#{user.name}"
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 10.times do
