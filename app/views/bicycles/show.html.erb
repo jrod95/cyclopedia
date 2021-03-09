@@ -1,13 +1,11 @@
 <div class="main-container">
 
-  <div class="d-flex flex-col justify-content-between align-items-center">
+  <div class="d-flex flex-col justify-content-between align-items-top ">
     <div class="col">
-    <p><strong>Brand:</strong><%= @bicycle.brand %>
-    </p>
-     <p>
-      <strong>Model:</strong>
-      <%= @bicycle.model %>
-    </p>
+
+
+
+    <div class="carousel">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -30,6 +28,10 @@
   </a>
 
 </div>
+</div>
+
+ <h3><strong><%= @bicycle.brand%>: <%= @bicycle.model %></strong>
+    </h3>
 
      <p>
        <strong>Description:</strong>
@@ -43,12 +45,32 @@
      </p>
 
  <br>
+ <br>
+
+
+
+
+
+ </div>
+
+
+     <div class="col" id="booking_form">
+      <p>
+        <%= simple_form_for [ @bicycle, @booking ] do |f|   %>
+          <strong>Price per day: <%= @bicycle.price %></strong>
+          <%= f.input :date_start %>
+          <%= f.input :date_end %>
+          <%= f.submit 'Book', class: 'btn btn-primary btn-lg btn-block'%>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+<div class="reviews">
+
     <h3>
       <%= pluralize @bicycle.reviews.size, "review" %>
     </h3>
-
-
-
   <div id="reviews">
     <% if @bicycle.reviews.blank? %>
       Be the first to leave a review for <%= @bicycle.model %>
@@ -60,30 +82,14 @@
 
 </div>
   <%= simple_form_for([@bicycle, @review]) do |f| %>
-    <%= f.input :content, as: :text %>
+    <%= f.input :content, as: :text%>
     <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
 
-
-
-
- </div>
-
-
-     <div class="col border border-secondary">
-
-      <p>
-
-        <%= simple_form_for [ @bicycle, @booking ] do |f|   %>
-          <strong>Price per day: <%= @bicycle.price %></strong>
-          <%= f.input :date_start %>
-          <%= f.input :date_end %>
-          <%= f.submit 'Book', class: 'btn btn-primary'%>
-        <% end %>
-      </p>
-    </div>
-  </div>
 </div>
+
+</div>
+
 
 
 
