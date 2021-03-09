@@ -1,21 +1,15 @@
-<%= form_tag bicycles_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a bicycle"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-   
-      <div class="row">
-         <% @bicycles.each do |bicycle| %>
-            <%= link_to bicycle_path(bicycle.id) do %>
-               <div class="card col-sm-4">
-                  <img src="https://s14761.pcdn.co/wp-content/uploads/sites/3/2020/04/Bianchi-Infinito-CV-test-review-2020-014-386-980x654.jpg" alt="">
-                  <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
-                  <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
-               </div>
-            <% end %>
-         <% end %>
-      </div>
-   
+
+
+      
+<div class="cards">
+   <% @bicycles.each do |bicycle| %>
+      
+      <%= link_to bicycle_path(bicycle.id) do %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bicycle.photo.key, height: 300, crop: :fill %>')">
+         </div>
+         <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+         <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+      <% end %>
+      
+   <% end %>
+</div>
