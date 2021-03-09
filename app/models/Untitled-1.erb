@@ -1,0 +1,12 @@
+<% @bicycles.each do |bicycle| %>
+         <div class="cards">
+            <%= link_to bicycle_path(bicycle.id) do %>
+               
+                  <%= cl_image_tag bicycle.photo.key, height: 400, width: 500, crop: :fit %>
+                  <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+                  <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+            <% end %>
+         </div>
+            
+      <% end %>
+   
