@@ -1,15 +1,15 @@
 
 
-      
+
 <div class="cards">
    <% @bicycles.each do |bicycle| %>
-      
+
       <%= link_to bicycle_path(bicycle.id) do %>
-         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bicycle.photo.key, height: 300, crop: :fill %>')">
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://contents.mediadecathlon.com/p1845298/k$58a3ffbde99c3c3a0357558d4980b6d3/sq/Riverside+120+Hybrid+Bike+Blue.webp?f=1000x1000)">
          </div>
          <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
          <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
       <% end %>
-      
+
    <% end %>
 </div>
