@@ -1,15 +1,33 @@
 
+<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
 
+<body>
+  <div class="index-container">
+    <div class="cards">
+       <% @bicycles.each do |bicycle| %>
 
-<div class="cards">
-   <% @bicycles.each do |bicycle| %>
+          <%= link_to bicycle_path(bicycle.id) do %>
+             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://contents.mediadecathlon.com/p1845298/k$58a3ffbde99c3c3a0357558d4980b6d3/sq/Riverside+120+Hybrid+Bike+Blue.webp?f=1000x1000)">
+             </div>
+             <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+             <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+          <% end %>
 
-      <%= link_to bicycle_path(bicycle.id) do %>
-         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://contents.mediadecathlon.com/p1845298/k$58a3ffbde99c3c3a0357558d4980b6d3/sq/Riverside+120+Hybrid+Bike+Blue.webp?f=1000x1000)">
-         </div>
-         <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
-         <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
-      <% end %>
+       <% end %>
+    </div>
+    <div id='map'></div>
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoibS1rYXNrIiwiYSI6ImNrbjh3ZDloeTBtOWIycHFuY2xwaGJ3ZnAifQ.SNnEr9eLylJHxo_wy9zfSA';
+      var map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [-74.5, 40], // starting position [lng, lat]
+      zoom: 9 // starting zoom
+      });
+      </script>
+  </div>
+</body>
 
-   <% end %>
-</div>
