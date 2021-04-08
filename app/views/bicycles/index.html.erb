@@ -1,4 +1,3 @@
-
 <head>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
@@ -31,3 +30,15 @@
   </div>
 </body>
 
+<div class="cards">
+   <% @bicycles.each do |bicycle| %>
+      
+      <%= link_to bicycle_path(bicycle.id) do %>
+         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bicycle.photo.key, height: 300, crop: :fill %>')">
+         </div>
+         <strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
+         <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p>
+      <% end %>
+      
+   <% end %>
+</div>
