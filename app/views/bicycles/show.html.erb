@@ -20,7 +20,7 @@
   </a>-->
 <div class="main-container">
   <div class="d-flex flex-col justify-content-between align-items-top ">
-    <div class="col">
+    <div class="col" id="bicycle-img">
     <%= cl_image_tag @bicycle.photo.key, height: 300, width: 400, crop: :fill %>
   <h3><strong><%= @bicycle.brand%>: <%= @bicycle.model %></strong>
     </h3>

@@ -2,8 +2,7 @@ class BicyclesController < ApplicationController
 
     def index
         if params[:query].present?
-          sql_query = "activity ILIKE :query OR brand ILIKE :query OR model ILIKE :query OR gender ILIKE :query "
-          @bicycles = Bicycle.where(sql_query, query: "%#{params[:query]}%")
+          @bicycles = Bicycle.search_by_brand_model_and_activity(params[:query])
         else
           @bicycles = Bicycle.all
         end
